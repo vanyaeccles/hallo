@@ -1,0 +1,8 @@
+X - rough game loop
+X - user input to progress story
+X - simple vector of story events
+0 - global game world state that can be set by a storyevent
+0 - story graph, some edges predicated on global game state
+0 - graph traversal with user input
+0 - write story
+
