@@ -1,3 +1,4 @@
+todo list:
 X - rough game loop
 X - user input to progress story
 X - simple vector of story events
@@ -6,3 +7,9 @@ X - simple vector of story events
 0 - graph traversal with user input
 0 - write story
 
+
+global game world state:
+state stored in hashmap of string to bool
+do storyevents have mutable description that depends on world state somehow? Prob not
+storyevents have a state prerequisite (needs to be checked before offering as a valid choice)
+storyevents optionally have a statechange (str,bool tuple) that affects game state if activated.

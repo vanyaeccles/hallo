@@ -7,36 +7,29 @@ use hallo::{build_story, StoryEvent};
 
 fn main() {
 
-
-    let mut gameover = false;
-
     let mut user_input = String::new();
     let stdin = io::stdin();
 
     let mut story = build_story();
+    let mut gameover = false;
 
-    println!{"You wake up in a strange land..."};
+    let mut event;
 
     while !gameover {
 
-        let _input = stdin.read_line(&mut user_input);
- 
-        let event = story.next_event(&mut user_input);
+        event = story.next_event(&mut user_input);
 
         match event {
-            Some(StoryEvent::ContinueEvent(message)) => {
+            StoryEvent::ContinueEvent(message) => {
                 println!("{}", message);
+
+                let _input = stdin.read_line(&mut user_input);
             },
-            Some(StoryEvent::EndEvent(message)) => {
+            StoryEvent::EndEvent(message) => {
                 println!("{}", message);
-                gameover = true
-            }
-            None => {
-                println!("You've reached a strange dimension with no escape.");
                 gameover = true
             }
         }
-
     }
     
 }
